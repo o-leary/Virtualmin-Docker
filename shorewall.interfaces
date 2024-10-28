@@ -1,3 +1,0 @@
-#ZONE   INTERFACE       BROADCAST       OPTIONS
-net     eth0            detect          tcpflags,logmartians,nosmurfs
-
