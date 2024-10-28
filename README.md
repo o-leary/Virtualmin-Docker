@@ -1,17 +1,14 @@
-# Virtualmin on Docker
+# Virtualmin Docker
 
-Virtualmin installation on Ubuntu Xenial 
+Virtualmin on Ubuntu Noble inspired by https://github.com/TheTechsTech/Virtualmin
 
+Note: running multiple services inside a docker container is not generally recommended, and this will run privileged, but may be helpful to you in a dev environment if you really want to use docker.
+
+Edit hostname in docker-compose.yml and timezone in Dockerfile then:
 ```
-docker run --name=hosting \
--v hosting-etc:/etc \
--v hosting-home:/home \
--v hosting-lib:/var/lib \
--v hosting-log:/var/log \
--v hosting-www:/var/www \
---hostname=server.virtualmin.host --net=host \
---privileged --restart always -d technoexpress/virtualmin
+docker compose up -d
 ```
-
-### Docker Hub
-https://hub.docker.com/r/technoexpress/virtualmin/builds/ automatically builds the latest changes into images which can easily be pulled and ran with a simple `docker run` command. 
+Curently you must still exec via the terminal the usual virtualmin install command:
+```
+sudo sh -c "$(curl -fsSL https://software.virtualmin.com/gpl/scripts/virtualmin-install.sh)" -- --bundle LAMP
+```
