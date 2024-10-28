@@ -4,7 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: virtualmin
-    hostname: virtualmin.o-leary.com
+    hostname: home-server.o-leary.com
+    privileged: true
+    stdin_open: true
+    tty: true
     ports:
       - "80:80"
       - "443:443"
